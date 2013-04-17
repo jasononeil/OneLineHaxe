@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 
 ###
@@ -29,12 +29,16 @@ echo "Install Haxe"
 sudo make install
 cd ..
 
+haxe 
+
 echo ""
 echo "Haxe Installed"
 
 ###
 
+echo ""
 echo "About to checkout, compile and install Neko SVN"
+echo "You may have to press 's' a few times to skip optional extra things."
 read -p "Press Enter to continue"
 
 echo "Checkout latest Neko SVN code"
@@ -48,13 +52,15 @@ echo "Install Neko"
 sudo make install
 cd ..
 
+neko
+
 echo ""
 echo "Neko Installed..."
 
 ###
 
-echo "You need to setup your haxelib path.  The default is /usr/lib/haxe/lib/"
-read -p "Press Enter to continue"
+echo ""
+echo "Haxelib setup"
 
 haxelib setup
 
