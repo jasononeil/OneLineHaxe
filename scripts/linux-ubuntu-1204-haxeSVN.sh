@@ -1,32 +1,42 @@
 #!/bin/bash
 
+# Die function, Taken from http://stackoverflow.com/questions/64786/error-handling-in-bash
+function error_exit
+{
+	PROGNAME=$(basename $0)
+    echo "${PROGNAME}: ${1:-"Unknown Error"}" 1>&2
+    exit 1
+}
 
 ###
 
+echo ""
 echo "Creating 'haxeinstall' directory..."
-mkdir haxeinstall
+mkdir -p haxeinstall || error_exit "Failed to create 'haxeinstall' directory."
 cd haxeinstall
 
 ###
 
+echo ""
 echo "Installing dependencies for Haxe and Neko with apt-get. "
-echo "We will need your [sudo] password..."
-read -p "Press Enter to continue"
-sudo apt-get install libzip-dev ocaml subversion libgc-dev libpcre3-dev
+echo "We will need your password..."
+
+sudo apt-get install libzip-dev ocaml subversion libgc-dev libpcre3-dev || error_exit "ERROR: Failed to install dependencies with apt-get"
 
 ###
 
+echo ""
 echo "About to checkout, compile and install Haxe SVN"
 read -p "Press Enter to continue"
 
 echo "Checkout latest Haxe SVN code"
-svn co http://haxe.googlecode.com/svn/trunk haxe
+svn co http://haxe.googlecode.com/svn/trunk haxe || error_exit "Failed to checkout haxe source"
 
 echo "Compile Haxe"
 cd haxe
-make clean all
+make clean all || error_exit "Failed to run 'make clean all' on haxe codebase"
 echo "Install Haxe"
-sudo make install
+sudo make install || error_exit "Failed to run 'sudo make install' on haxe codebase"
 cd ..
 
 haxe 
@@ -43,13 +53,13 @@ read -p "Press Enter to continue"
 
 echo "Checkout latest Neko SVN code"
 
-svn co http://nekovm.googlecode.com/svn/trunk neko
+svn co http://nekovm.googlecode.com/svn/trunk neko || error_exit "Failed to checkout neko source"
 
 echo "Compile Neko"
 cd neko
-make clean all
+make clean all || error_exit "Failed to run 'make clean all' on neko codebase"
 echo "Install Neko"
-sudo make install
+sudo make install || error_exit "Failed to run 'sudo make install' on neko codebase"
 cd ..
 
 neko
@@ -60,7 +70,7 @@ echo "Neko Installed..."
 ###
 
 echo ""
-echo "Haxelib setup"
+echo "Haxelib setup" || error_exit "Failed to setup haxelib"
 
 haxelib setup
 
