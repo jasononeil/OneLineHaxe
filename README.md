@@ -1,4 +1,4 @@
 OneLineHaxe
 ===========
 
-A collection of install scripts that can be called with a single line.
+A collection of install scripts that can install Haxe from source with a single line.
