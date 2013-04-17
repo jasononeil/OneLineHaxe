@@ -1,1 +1,6 @@
+# Ignore the install directory, so you can run tests and not accidentally
+# add the entire haxe/neko codebases to our git repo.
 haxeinstall
+
+# Ignore editor files
+*.sublime-*
