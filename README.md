@@ -16,9 +16,9 @@ Latest SVN:
 
     source <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxeSVN.sh)
 
-Haxe 3:
+Haxe 3 rc1, Neko 2.0:
 
-    Not released yet...
+    source <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe3RC.sh)
 
 Contributions
 -------------
