@@ -12,13 +12,15 @@ Versions
 
 #### Ubuntu 12.04
 
+Each of these require `curl` to be installed.  If you don't have it installed, you can run `sudo apt-get install curl`, and then use the commands below.
+
 Latest SVN:
 
-    source <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxeSVN.sh)
+    bash <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxeSVN.sh)
 
 Haxe 3 rc1, Neko 2.0:
 
-    source <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe3RC.sh)
+    bash <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe3RC.sh)
 
 Contributions
 -------------
