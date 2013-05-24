@@ -30,6 +30,7 @@ echo "About to checkout, compile and install Haxe SVN"
 read -p "Press Enter to continue"
 
 echo "Checkout Haxe 3.00 code"
+rm -Rf haxe
 svn co http://haxe.googlecode.com/svn/tags/v3-00/ haxe || error_exit "Failed to checkout haxe source"
 
 echo "Compile Haxe"
@@ -52,6 +53,7 @@ echo "You may have to press 's' a few times to skip optional extra things."
 read -p "Press Enter to continue"
 
 echo "Checkout Neko 2.0 code"
+rm -Rf neko
 svn co http://nekovm.googlecode.com/svn/tags/v2-0/ neko || error_exit "Failed to checkout neko source"
 
 echo "Compile Neko"
