@@ -18,7 +18,7 @@ Latest SVN:
 
     bash <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxeSVN.sh)
 
-Haxe 3 rc1, Neko 2.0:
+Haxe 3, Neko 2.0:
 
     bash <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe3.sh)
 
