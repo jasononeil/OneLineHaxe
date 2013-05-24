@@ -29,8 +29,8 @@ echo ""
 echo "About to checkout, compile and install Haxe SVN"
 read -p "Press Enter to continue"
 
-echo "Checkout Haxe 3 rc1 code"
-svn co http://haxe.googlecode.com/svn/tags/v3-00-rc1/ haxe || error_exit "Failed to checkout haxe source"
+echo "Checkout Haxe 3.00 code"
+svn co http://haxe.googlecode.com/svn/tags/v3-00/ haxe || error_exit "Failed to checkout haxe source"
 
 echo "Compile Haxe"
 cd haxe
