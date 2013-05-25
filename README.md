@@ -10,7 +10,7 @@ Versions
 
 ### Linux
 
-#### Ubuntu 12.04
+#### Ubuntu 12.04, 12.10
 
 Each of these require `curl` to be installed.  If you don't have it installed, you can run `sudo apt-get install curl`, and then use the commands below.
 
