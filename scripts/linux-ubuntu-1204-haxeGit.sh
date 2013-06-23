@@ -30,14 +30,23 @@ echo ""
 echo "About to checkout, compile and install Haxe Git/Development"
 read -p "Press Enter to continue"
 
-echo "Checkout latest Haxe Git code"
-rm -Rf haxe
-git clone git://github.com/HaxeFoundation/haxe.git || error_exit "Failed to clone haxe source from Github"
+echo "Checkout latest Haxe development branch from Github"
 
-cd haxe
-git checkout development || error_exit "Failed to checkout development branch of Haxe repo"
-git submodule init || error_exit "Failed to run 'git submodule init' in haxe directory"
-git submodule update || error_exit "Failed to run 'git submodule update' in haxe directory"
+if [ -d "haxe" ]; then
+  # It exists, so checkout and update
+  cd haxe 
+  git reset --hard || error_exit "Failed to run 'git reset --hard' in haxe directory"
+  git checkout development || error_exit "Failed to run 'git checkout development' in haxe directory"
+  git pull || error_exit "Failed to run 'git pull' in haxe directory"
+  git submodule update || error_exit "Failed to run 'git submodule update' in haxe directory"
+else
+  # It does not exist, so clone 
+  git clone git://github.com/HaxeFoundation/haxe.git || error_exit "Failed to clone haxe source from Github"
+  cd haxe
+  git checkout development || error_exit "Failed to run 'git checkout development' in haxe directory"
+  git submodule init || error_exit "Failed to run 'git submodule init' in haxe directory"
+  git submodule update || error_exit "Failed to run 'git submodule update' in haxe directory"
+fi
 
 echo "Compile Haxe"
 make clean all || error_exit "Failed to run 'make clean all' on haxe codebase"
@@ -58,12 +67,20 @@ echo "You may have to press 's' a few times to skip optional extra things."
 read -p "Press Enter to continue"
 
 echo "Checkout latest Neko Git code"
-rm -Rf neko
-git clone git://github.com/HaxeFoundation/neko.git || error_exit "Failed to checkout neko source from Github"
+
+if [ -d "neko" ]; then
+  # It exists, so checkout and update
+  cd neko 
+  git reset --hard || error_exit "Failed to run 'git reset --hard' in neko directory"
+  git pull || error_exit "Failed to run 'git pull' in neko directory"
+else
+  # It does not exist, so clone 
+  git clone git://github.com/HaxeFoundation/neko.git || error_exit "Failed to checkout neko source from Github"
+  cd neko
+fi
 
 
 echo "Compile Neko"
-cd neko
 make clean all || error_exit "Failed to run 'make clean all' on neko codebase"
 echo "Install Neko"
 sudo make install || error_exit "Failed to run 'sudo make install' on neko codebase"
