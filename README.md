@@ -14,9 +14,9 @@ Versions
 
 Each of these require `curl` to be installed.  If you don't have it installed, you can run `sudo apt-get install curl`, and then use the commands below.
 
-Latest SVN:
+Latest GIT:
 
-    bash <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxeSVN.sh)
+    bash <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxeGit.sh)
 
 Haxe 3, Neko 2.0:
 
