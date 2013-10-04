@@ -27,7 +27,7 @@ sudo apt-get install libzip-dev ocaml git-core libgc-dev libpcre3-dev || error_e
 ###
 
 echo ""
-echo "About to checkout, compile and install Haxe Git/Development"
+echo "About to checkout, compile and install Haxe Git v3.0.1"
 read -p "Press Enter to continue"
 
 echo "Checkout Haxe v3.0.1 tag from Github"
@@ -36,9 +36,8 @@ if [ -d "haxe" ]; then
   # It exists, so checkout and update
   cd haxe 
   git reset --hard || error_exit "Failed to run 'git reset --hard' in haxe directory"
-  git fetch || error_exit "Failed to run 'git fetch' in haxe directory"
-  git checkout v3.0.1 || error_exit "Failed to run 'git checkout v3.0.1' in haxe directory"
   git pull || error_exit "Failed to run 'git pull' in haxe directory"
+  git checkout v3.0.1 || error_exit "Failed to run 'git checkout v3.0.1' in haxe directory"
   git submodule update || error_exit "Failed to run 'git submodule update' in haxe directory"
 else
   # It does not exist, so clone 
@@ -63,24 +62,23 @@ echo "Haxe Installed"
 ###
 
 echo ""
-echo "About to checkout, compile and install Neko Git/Master"
+echo "About to checkout, compile and install Neko Git v2-0"
 echo "You may have to press 's' a few times to skip optional extra things."
 read -p "Press Enter to continue"
 
-echo "Checkout latest Neko Git code"
+echo "Checkout Neko from Git / v2-0"
 
 if [ -d "neko" ]; then
   # It exists, so checkout and update
   cd neko 
   git reset --hard || error_exit "Failed to run 'git reset --hard' in neko directory"
-  git fetch || error_exit "Failed to run 'git fetch' in haxe directory"
-  git checkout v2-0 || error_exit "Failed to run 'git checkout v2-0' in haxe directory"
   git pull || error_exit "Failed to run 'git pull' in neko directory"
+  git checkout v2-0 || error_exit "Failed to run 'git checkout v2-0' in haxe directory"
 else
   # It does not exist, so clone 
   git clone git://github.com/HaxeFoundation/neko.git || error_exit "Failed to checkout neko source from Github"
+  cd neko 
   git checkout v2-0 || error_exit "Failed to run 'git checkout v2-0' in haxe directory"
-  cd neko
 fi
 
 
@@ -101,6 +99,12 @@ echo ""
 echo "Haxelib setup" || error_exit "Failed to setup haxelib"
 
 haxelib setup
+
+###
+
+echo ""
+echo "About to update haxelib"
+sudo haxelib selfupdate
 
 ###
 
