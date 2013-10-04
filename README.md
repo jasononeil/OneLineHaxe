@@ -10,7 +10,9 @@ Versions
 
 ### Linux
 
-#### Ubuntu 12.04, 12.10
+#### Ubuntu
+
+**Tested on 10.04, 12.04, 12.10, some 32bit and some 64bit. Should be fairly generic.**
 
 Each of these require `curl` to be installed.  If you don't have it installed, you can run `sudo apt-get install curl`, and then use the commands below.
 
