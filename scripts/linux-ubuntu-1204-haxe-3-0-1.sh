@@ -41,12 +41,13 @@ if [ -d "haxe" ]; then
   git submodule update || error_exit "Failed to run 'git submodule update' in haxe directory"
 else
   # It does not exist, so clone 
-  git clone git://github.com/HaxeFoundation/haxe.git || error_exit "Failed to clone haxe source from Github"
+  git clone --branch v3.0.1 --depth=1 git://github.com/HaxeFoundation/haxe.git || error_exit "Failed to clone haxe source from Github"
   cd haxe
-  git checkout v3.0.1 || error_exit "Failed to run 'git checkout v3.0.1' in haxe directory"
   git submodule init || error_exit "Failed to run 'git submodule init' in haxe directory"
   git submodule update || error_exit "Failed to run 'git submodule update' in haxe directory"
 fi
+
+killall haxe
 
 echo "Compile Haxe"
 make clean all || error_exit "Failed to run 'make clean all' on haxe codebase"
