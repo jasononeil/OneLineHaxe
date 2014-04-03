@@ -27,10 +27,10 @@ sudo apt-get install make libzip-dev ocaml git-core libgc-dev libpcre3-dev apach
 ###
 
 echo ""
-echo "About to checkout, compile and install Haxe Git/Development"
+echo "About to checkout, compile and install Haxe Git 3.1.2"
 read -p "Press Enter to continue"
 
-echo "Checkout latest Haxe development branch from Github"
+echo "Checkout Haxe 3.1.2 tag from Github"
 
 if [ -d "haxe" ]; then
   # It exists, so checkout and update
@@ -38,10 +38,12 @@ if [ -d "haxe" ]; then
   git reset --hard || error_exit "Failed to run 'git reset --hard' in haxe directory"
   git checkout development || error_exit "Failed to run 'git checkout development' in haxe directory"
   git pull || error_exit "Failed to run 'git pull' in haxe directory"
+  git checkout 3.1.2 || error_exit "Failed to run 'git checkout 3.1.2' in haxe directory"
+  git submodule init || error_exit "Failed to run 'git submodule init' in haxe directory"
   git submodule update || error_exit "Failed to run 'git submodule update' in haxe directory"
 else
   # It does not exist, so clone 
-  git clone --branch development --depth=1 git://github.com/HaxeFoundation/haxe.git || error_exit "Failed to clone haxe source from Github"
+  git clone --branch 3.1.2 --depth=1 git://github.com/HaxeFoundation/haxe.git || error_exit "Failed to clone haxe source from Github"
   cd haxe
   git submodule init || error_exit "Failed to run 'git submodule init' in haxe directory"
   git submodule update || error_exit "Failed to run 'git submodule update' in haxe directory"
@@ -63,21 +65,23 @@ echo "Haxe Installed"
 ###
 
 echo ""
-echo "About to checkout, compile and install Neko Git/Master"
+echo "About to checkout, compile and install Neko Git v2-0"
 echo "You may have to press 's' a few times to skip optional extra things."
 read -p "Press Enter to continue"
 
-echo "Checkout latest Neko Git code"
+echo "Checkout Neko from Git / v2-0"
 
 if [ -d "neko" ]; then
   # It exists, so checkout and update
   cd neko 
   git reset --hard || error_exit "Failed to run 'git reset --hard' in neko directory"
   git pull || error_exit "Failed to run 'git pull' in neko directory"
+  git checkout v2-0 || error_exit "Failed to run 'git checkout v2-0' in haxe directory"
 else
   # It does not exist, so clone 
   git clone git://github.com/HaxeFoundation/neko.git || error_exit "Failed to checkout neko source from Github"
-  cd neko
+  cd neko 
+  git checkout v2-0 || error_exit "Failed to run 'git checkout v2-0' in haxe directory"
 fi
 
 
@@ -101,7 +105,13 @@ haxelib setup
 
 ###
 
+echo ""
+echo "About to update haxelib"
+sudo haxelib selfupdate
+
+###
+
 cd ..
 echo "Done"
-echo "Type [haxe], [neko], and [haxelib] at a command line to check they're good to go"
+echo "Type [haxe], [neko], and [haxelib] and at a command line to check they're good to go"
 

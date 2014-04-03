@@ -22,7 +22,7 @@ echo "Installing dependencies for Haxe and Neko with apt-get. "
 echo "We will need your password..."
 
 sudo apt-get update
-sudo apt-get install libzip-dev ocaml git-core libgc-dev libpcre3-dev apache2-threaded-dev libsqlite3-dev || error_exit "ERROR: Failed to install dependencies with apt-get"
+sudo apt-get install make libzip-dev ocaml git-core libgc-dev libpcre3-dev apache2-threaded-dev libsqlite3-dev camlp4 || error_exit "ERROR: Failed to install dependencies with apt-get"
 
 ###
 
@@ -36,6 +36,7 @@ if [ -d "haxe" ]; then
   # It exists, so checkout and update
   cd haxe 
   git reset --hard || error_exit "Failed to run 'git reset --hard' in haxe directory"
+  git checkout development || error_exit "Failed to run 'git checkout development' in haxe directory"
   git pull || error_exit "Failed to run 'git pull' in haxe directory"
   git checkout v3.1.0 || error_exit "Failed to run 'git checkout v3.1.0' in haxe directory"
   git submodule init || error_exit "Failed to run 'git submodule init' in haxe directory"
@@ -112,5 +113,5 @@ sudo haxelib selfupdate
 
 cd ..
 echo "Done"
-echo "Type [haxe], [neko], [haxelib] and [haxedoc] at a command line to check they're good to go"
+echo "Type [haxe], [neko], and [haxelib] and at a command line to check they're good to go"
 

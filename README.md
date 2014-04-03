@@ -20,9 +20,9 @@ Latest GIT:
 
     sudo apt-get install curl; bash <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe-git.sh)
 
-Haxe 3.1.0, Neko 2.0:
+Haxe 3.1.2, Neko 2.0:
 
-    sudo apt-get install curl; bash <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe-3-1-0.sh)
+    sudo apt-get install curl; bash <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe-3-1-2.sh)
 
 Contributions
 -------------

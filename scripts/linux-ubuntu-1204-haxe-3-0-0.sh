@@ -21,7 +21,7 @@ echo ""
 echo "Installing dependencies for Haxe and Neko with apt-get. "
 echo "We will need your password..."
 
-sudo apt-get install libzip-dev ocaml subversion libgc-dev libpcre3-dev apache2-threaded-dev libsqlite3-dev || error_exit "ERROR: Failed to install dependencies with apt-get"
+sudo apt-get install make libzip-dev ocaml subversion libgc-dev libpcre3-dev apache2-threaded-dev libsqlite3-dev || error_exit "ERROR: Failed to install dependencies with apt-get"
 
 ###
 
