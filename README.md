@@ -18,11 +18,11 @@ Each of these require `curl` to be installed.  If you don't have it installed, y
 
 Latest GIT:
 
-    sudo apt-get install curl; bash <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe-git.sh)
+    sudo apt-get install curl; curl -sSL https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe-generic.sh | bash -s development master
 
-Haxe 3.1.2, Neko 2.0:
+Haxe 3.1.3, Neko 2.0:
 
-    sudo apt-get install curl; bash <(curl -s https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe-3-1-2.sh)
+    sudo apt-get install curl; curl -sSL https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe-generic.sh | bash -s 3.1.3 v2-0
 
 Contributions
 -------------
