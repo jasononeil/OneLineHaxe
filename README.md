@@ -20,6 +20,10 @@ Latest GIT:
 
     sudo apt-get install curl; curl -sSL https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe-generic.sh | bash -s development master
 
+For Ubuntu 14.04 please add "sudo -s":
+
+    sudo -s; apt-get install curl; curl -sSL https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe-generic.sh | bash -s development master
+    
 Haxe 3.1.3, Neko 2.0:
 
     sudo apt-get install curl; curl -sSL https://raw.github.com/jasononeil/OneLineHaxe/master/scripts/linux-ubuntu-1204-haxe-generic.sh | bash -s 3.1.3 v2-0
